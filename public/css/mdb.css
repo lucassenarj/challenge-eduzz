@@ -6905,7 +6905,7 @@ body.scrollable {
 .full-height body,
 .full-height header,
 .full-height header .view {
-  height: 100%; }
+  height: 0px; }
 
 .intro {
   min-height: 1000px;

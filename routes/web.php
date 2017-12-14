@@ -12,5 +12,5 @@
 */
 
 $router->get('/', function (){
-    return view('index');
+    return view('welcome');
 });
