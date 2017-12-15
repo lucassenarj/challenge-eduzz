@@ -1,164 +1,83 @@
-@extends('layouts.master')
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title')
-    Welcome!
-@endsection
+        <title>Laravel</title>
 
-@section('content')    
-    
-    <!-- Main container-->
-    <div class="container">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <div class="divider-new pt-5">
-            <h2 class="h2-responsive wow fadeIn" data-wow-delay="0.2s">About us</h2>
-        </div>
-
-        <!--Section: About-->
-        <section id="about" class="text-center wow fadeIn" data-wow-delay="0.2s">
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo assumenda eligendi ex exercitationem harum deleniti quaerat beatae ducimus dolor voluptates magnam, reiciendis pariatur culpa tempore quibusdam quidem, saepe eius.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit explicabo assumenda eligendi ex exercitationem harum deleniti quaerat beatae ducimus dolor voluptates magnam, reiciendis pariatur culpa tempore quibusdam quidem, saepe eius.</p>
-
-        </section>
-        <!--Section: About-->
-
-        <div class="divider-new pt-5">
-            <h2 class="h2-responsive wow fadeIn">Best features</h2>
-        </div>
-
-        <!--Section: Best features-->
-        <section id="best-features">
-
-            <div class="row pt-3">
-
-                <!--First columnn-->
-                <div class="col-lg-3 mb-r">
-
-                    <!--Card-->
-                    <div class="card wow fadeIn">
-
-                        <!--Card image-->
-                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(25).jpg" alt="Card image cap">
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title text-center">360 Advertising</h4>
-                            <hr>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #fff;
+                color: #636b6f;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 100;
+                height: 100vh;
+                margin: 0;
+            }
+            .full-height {
+                height: 100vh;
+            }
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+            .position-ref {
+                position: relative;
+            }
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+            .content {
+                text-align: center;
+            }
+            .title {
+                font-size: 84px;
+            }
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            
+                <div class="top-right links">
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('register') }}">Register</a>
+            
                 </div>
-                <!--First columnn-->
+            
 
-                <!--Second columnn-->
-                <div class="col-lg-3 mb-r">
-                    <!--Card-->
-                    <div class="card wow fadeIn" data-wow-delay="0.2s">
-
-                        <!--Card image-->
-                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(14).jpg" alt="Card image cap">
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title text-center">Top-class Team</h4>
-                            <hr>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
+            <div class="content">
+                <div class="title m-b-md">
+                    Eduzz Challenge
                 </div>
-                <!--Second columnn-->
 
-                <!--Third columnn-->
-                <div class="col-lg-3 mb-r">
-                    <!--Card-->
-                    <div class="card wow fadeIn" data-wow-delay="0.4s">
 
-                        <!--Card image-->
-                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(21).jpg" alt="Card image cap">
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title text-center">Top-class Team</h4>
-                            <hr>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
+                <div class="links">
+                    <a target="_blank" href="https://github.com/lucassenarj/challenge-eduzz">GitHub</a>
+                    <a href="mailto:lucassena.rj@gmail.com"> Support</a>
+                    <a target="_blank" href="https://www.linkedin.com/in/lucassenarj/"> Developed by</a>
                 </div>
-                <!--Third columnn-->
-
-                <!--First columnn-->
-                <div class="col-lg-3 mb-r">
-                    <!--Card-->
-                    <div class="card wow fadeIn" data-wow-delay="0.6s">
-
-                        <!--Card image-->
-                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(37).jpg" alt="Card image cap">
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title text-center">24/7 Support</h4>
-                            <hr>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--First columnn-->
             </div>
-
-        </section>
-        <!--/Section: Best features-->
-
-        <div class="divider-new">
-            <h2 class="h2-responsive wow fadeIn">Contact us</h2>
         </div>
-
-        <!--Section: Contact-->
-        <section id="contact pb-5">
-            <div class="row">
-                <!--First column-->
-                <div class="col-md-8 mb-5">
-                    <div id="map-container" class="z-depth-1 wow fadeIn" style="height: 300px"></div>
-                </div>
-                <!--/First column-->
-
-                <!--Second column-->
-                <div class="col-md-4">
-                    <ul class="text-center list-unstyled">
-                        <li class="wow fadeIn" data-wow-delay="0.2s"><i class="fa fa-map-marker teal-text fa-lg"></i>
-                            <p>New York, NY 10012, USA</p>
-                        </li>
-
-                        <li class="wow fadeIn mt-5 pt-2" data-wow-delay="0.3s"><i class="fa fa-phone teal-text fa-lg"></i>
-                            <p>+ 01 234 567 89</p>
-                        </li>
-
-                        <li class="wow fadeIn mt-5 pt-2" data-wow-delay="0.4s"><i class="fa fa-envelope teal-text fa-lg"></i>
-                            <p>contact@mdbootstrap.com</p>
-                        </li>
-                    </ul>
-                </div>
-                <!--/Second column-->
-            </div>
-        </section>
-        <!--Section: Contact-->
-
-    </div>
-    <!--/ Main container-->
-
-@endsection
+    </body>
+</html>
