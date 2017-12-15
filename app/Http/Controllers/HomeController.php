@@ -52,4 +52,18 @@ class HomeController extends Controller
 
         //return response()->json($candidate);
     }
+
+    public function edit($id){
+        $candidate = Candidate::find($id);
+        
+        if(!$candidate){
+            return response()->json([
+                'message' => 'Candidate not found',
+            ], 404);
+        }
+
+        return response()->make(view('edit')->with('candidate', $candidate));
+
+        //return response()->json($candidate);
+    }
 }
