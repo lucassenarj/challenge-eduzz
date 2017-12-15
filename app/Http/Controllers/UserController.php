@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\User as User;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class UserController extends Controller
 {
@@ -81,11 +83,20 @@ class UserController extends Controller
       */
      protected function respondWithToken($token)
      {
+         return redirect()->route('home', ['access_token' => $token]);
+         //return redirect('home')->header('access_token', $token);
+        
+         //return response()->make(view('home'), 200, ['access_token' => $token]);
+         
+         //response()->header('access_token', $token);
+         //return redirect()->route('welcome');
+         /*
          return response()->json([
              'access_token' => $token,
              'token_type' => 'bearer',
              'expires_in' => $this->guard()->factory()->getTTL() * 60
          ]);
+         //*/
      }
  
      /**
@@ -122,5 +133,18 @@ class UserController extends Controller
         }
 
         return response()->json($user);
+    }
+
+    public function authenticate(\Illuminate\Http\Request $request) { 
+        $credentials = $request->only('email', 'password'); // grab credentials from the request
+        try {
+            if (!$token = JWTAuth::attempt($credentials)) { // attempt to verify the credentials and create a token for the user
+                return response()->json(['error' => 'invalid_credentials'], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json(['error' => 'could_not_create_token'], 500); // something went wrong whilst attempting to encode the token
+        }
+
+        return response()->json(['token' => "Bearer $token"]);
     }
 }

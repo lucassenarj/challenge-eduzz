@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +16,49 @@ $router->get('/', function (){
     return view('welcome');
 });
 
-Route::group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function ($router) {
-    Route::get('/candidates', 'CandidateController@index');
-    Route::get('/candidates/{id}', 'CandidateController@show');
-    Route::post('/candidates', 'CandidateController@store');
-    Route::put('/candidates/{id}', 'CandidateController@update');
-    Route::delete('/candidates/{id}', 'CandidateController@destroy');
-
-    Route::get('/users', 'UserController@index');
-    Route::get('/users/{id}', 'UserController@show');
-    Route::post('/users/logout', 'UserController@logout');
-    Route::post('/users/me', 'UserController@me');
-    Route::post('/users/refresh', 'UserController@refresh');
+$router->get('/home', ['as' => 'home', 'uses' => 'HomeController@home'], function (Request $request){
+    return view('home');
 });
 
-Route::post('api/users/login', 'UserController@login');
+$router->get('/candidate/{id}', ['uses' => 'HomeController@candidates']);
+
+
+/*
+$router->get('/candidate', ['as' => 'candidate', 'uses' => 'HomeController@candidate'], function (Request $request){
+    return view('candidate');
+});
+//*/
+
+Route::get('/login', ['as' => 'login', 'uses' => 'HomeController@login']);
+Route::get('/register', ['as' => 'register', 'uses' => 'HomeController@register']);
+Route::get('/request/password', ['as' => 'password.request', 'uses' => 'HomeController@register']);
+Route::post('/login', ['as' => 'login', 'uses' => 'UserController@login']);
+
+
+/*
+Route::get('/home', ['as' => 'home', 'uses' => 'HomeController@home'], function(Request $token){
+    //if($token == null) return response('Not valid token provider.', 401);
+    
+    return view('home');
+});
+*/
+
+
+$router->group(['middleware' => 'jwt.auth', 'prefix' => 'api/v1'], function ($router) {
+    $router->get('/candidates', 'CandidateController@index');
+    $router->get('/candidates/{id}', 'CandidateController@show');
+    $router->post('/candidates', 'CandidateController@store');
+    $router->put('/candidates/{id}', 'CandidateController@update');
+    $router->delete('/candidates/{id}', 'CandidateController@destroy');
+
+    $router->get('/users', 'UserController@index');
+    $router->get('/users/{id}', 'UserController@show');
+    $router->post('/users/logout', 'UserController@logout');
+    $router->post('/users/me', 'UserController@me');
+    $router->post('/users/refresh', 'UserController@refresh');
+});
+
+//$router->post('api/v1/users/login', ['as' => 'singin', 'uses' => 'UserController@login']);
 
 /*
 Route::group(['middleware' => 'api', 'prefix' => 'users'], function ($router) {

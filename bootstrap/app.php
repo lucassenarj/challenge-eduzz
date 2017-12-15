@@ -103,4 +103,7 @@ $app->router->group([
 
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 
+$app->register(Illuminate\Session\SessionServiceProvider::class);
+
+
 return $app;

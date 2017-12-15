@@ -9,7 +9,8 @@
         "laravel/lumen-framework": "5.5.*",
         "vlucas/phpdotenv": "~2.2",
         "wn/lumen-generators": "^1.3",
-        "tymon/jwt-auth": "1.0.0-rc.1"
+        "tymon/jwt-auth": "1.0.0-rc.1",
+        "illuminate/session": "^5.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
