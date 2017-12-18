@@ -1,21 +1,71 @@
-# Lumen PHP Framework
+# English
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+## Eduzz Challenge
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+### Configuring host
 
-## Official Documentation
+1 - Access `challenge-eduzz` folder by the terminal
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+2 - Execute `composer install`
 
-## Security Vulnerabilities
+3 - Create a mysql DB using `CREATE DATABASE eduzz;`
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+4 - Open `.env` file and edit the following lines:
+```
+    DB_DATABASE=eduzz
+    DB_USERNAME=root
+    DB_PASSWORD=pass
+```
 
-## License
+5 - Execute `php artisan migrate --seed`
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+6 - Execute `php artisan jwt:secret`
+
+7 - Execute `php -S localhost:8000 -t public`
+
+8 - Access `http://localhost:8000/` to front end
+
+9 - Click `Login` and use `administrator@admin.com` for email and `administrator` for password
+
+### Informations
+Lumen 5.5 version with [JWT Auth](https://github.com/tymondesigns/jwt-auth/wiki) plugin for authentication.
+
+### Documentations
+- [Lumen](https://lumen.laravel.com/docs/5.5)
+- [JWT Auth](https://github.com/tymondesigns/jwt-auth/wiki)
+
+# Português
+
+## Teste Materate
+
+### Configurando o servidor
+1 - Acesse a pasta `challenge-eduzz` pelo terminal
+
+2 - Execute `composer install`
+
+3 - Crie um banco de dados no mysql: `CREATE DATABASE eduzz;`
+
+4 - Abra o arquivo `.env` e configure as seguintes linhas:
+```
+    DB_DATABASE=eduzz
+    DB_USERNAME=root
+    DB_PASSWORD=password
+```
+
+5 - Execute `php artisan migrate --seed`
+
+6 - Execute `php artisan jwt:secret`
+
+7 - Execute `php -S localhost:8000 -t public`
+
+8 - Acesse `http://localhost:8000/` para o front end
+
+9 - Click `Login` e use `administrator@admin.com` para o email e `administrator` para a senha
+
+
+### Informações
+Utilizada versão 5.5 do Lumen, utilizando o plugin [JWT Auth](https://github.com/tymondesigns/jwt-auth/wiki) para autenticação.
+
+### Documentações
+- [Lumen](https://lumen.laravel.com/docs/5.5)
+- [JWT Auth](https://github.com/tymondesigns/jwt-auth/wiki)
