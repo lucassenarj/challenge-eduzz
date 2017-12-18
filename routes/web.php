@@ -22,6 +22,15 @@ $router->get('/home', ['as' => 'home', 'uses' => 'HomeController@home'], functio
 
 $router->get('/candidate/{id}', ['uses' => 'HomeController@candidates']);
 $router->get('/candidate/edit/{id}', ['uses' => 'HomeController@edit']);
+$router->put('/candidate/{id}', ['uses' => 'HomeController@update']);
+$router->post('/home', ['uses' => 'HomeController@store']);
+$router->get('/candidate/delete/{id}', ['uses' => 'HomeController@destroy']);
+
+//Route::get('candidate/{id}/delete', ['as' => 'delete', 'uses' => 'HomeController@destroy']);
+
+$router->get('/candidate', function(){
+    return view('add');
+});
 
 
 /*

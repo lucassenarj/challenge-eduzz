@@ -17,7 +17,7 @@
                 <div class="col-lg-3 mb-r">
 
                     <!--Card-->
-                    <div class="card wow fadeIn">
+                    <div class="card wow fadeIn" style="min-height:550px;">
 
                         <!--Card image-->
                         <img class="img-fluid" src="{!! $candidate->photo  !!}" alt="Card image cap">

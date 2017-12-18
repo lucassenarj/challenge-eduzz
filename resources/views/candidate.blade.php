@@ -16,7 +16,7 @@
                 <!--Card content-->
                 <div class="card-body">
                     <!--Title-->
-                    <h4 class="card-title text-left">From: {!! $candidate->birth !!} | <a href="{{ URL::to('/') }}/candidate/edit/{!! $candidate->id !!}?access_token={{ $_GET['access_token'] }}">Edit</a></h4>
+                    <h4 class="card-title text-left">From: {!! $candidate->birth !!} | <a href="{{ URL::to('/') }}/candidate/edit/{!! $candidate->id !!}?access_token={{ $_GET['access_token'] }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> <a href="{{ URL::to('/') }}/candidate/delete/{!! $candidate->id !!}?access_token={{ $_GET['access_token'] }}"><i class="fa fa-times" aria-hidden="true"></i></a></h4>
                     <hr>
                     <!--Text-->
                     <p class="card-text">{!! $candidate->bio !!}</p>

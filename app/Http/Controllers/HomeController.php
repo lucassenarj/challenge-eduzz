@@ -20,6 +20,14 @@ class HomeController extends Controller
         //$this->middleware('auth');
     }
 
+    private function verification(){
+        $header = $_GET['access_token'];
+        
+        if(!$header || $header == ''){
+            return response('Not valid token provider.', 401);
+        }
+    }
+
     public function login(){
         return view('auth.login');
     }
@@ -29,17 +37,15 @@ class HomeController extends Controller
     }
 
     public function home(Request $request){
-        $header = $_GET['access_token'];
+        $this->verification();
 
-        if(!$header || $header == ''){
-            return response('Not valid token provider.', 401);
-        }
-
-        $candidates = Candidate::all();
+        $candidates = Candidate::orderBy('id', 'desc')->get();
         return response()->make(view('home')->with('candidates', $candidates));
     }
 
     public function candidates($id){
+        $this->verification();        
+                
         $candidate = Candidate::find($id);
         
         if(!$candidate){
@@ -49,11 +55,11 @@ class HomeController extends Controller
         }
 
         return response()->make(view('candidate')->with('candidate', $candidate));
-
-        //return response()->json($candidate);
     }
 
     public function edit($id){
+        $this->verification();
+        
         $candidate = Candidate::find($id);
         
         if(!$candidate){
@@ -65,5 +71,48 @@ class HomeController extends Controller
         return response()->make(view('edit')->with('candidate', $candidate));
 
         //return response()->json($candidate);
+    }
+
+    public function store(Request $request){
+        $this->verification();
+
+        $candidate = Candidate::create($request->all());
+
+        if(!$candidate){
+            return response()->json([
+                'message' => 'Error to create the candidate',
+            ], 401);
+        }
+
+        $candidates = Candidate::orderBy('id', 'desc')->get();
+        return response()->make(view('home')->with('candidates', $candidates));
+        //return response()->make(view('home')->with('candidate', $candidate));
+    }
+
+    public function update(Request $request,$id){
+        $this->verification();
+
+        $candidate = Candidate::find($id);
+        $candidate->name = $request->input('name');
+        $candidate->birth = $request->input('birth');
+        $candidate->age = $request->input('age');
+        $candidate->portfolio = $request->input('portfolio');
+        $candidate->email = $request->input('email');
+        $candidate->bio = $request->input('bio');
+        $candidate->photo = $request->input('photo');
+        $candidate->save();
+
+        return response()->make(view('candidate')->with('candidate', $candidate));
+        //return response()->json($Book);
+    }
+    
+    public function destroy($id){
+        $this->verification();
+
+        $candidate = Candidate::find($id);
+        $candidate->delete();
+ 
+        $candidates = Candidate::orderBy('id', 'desc')->get();
+        return response()->make(view('home')->with('candidates', $candidates));
     }
 }
