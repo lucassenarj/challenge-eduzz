@@ -36,7 +36,7 @@ Lumen 5.5 version with [JWT Auth](https://github.com/tymondesigns/jwt-auth/wiki)
 
 # Português
 
-## Teste Materate
+## Teste Eduzz
 
 ### Configurando o servidor
 1 - Acesse a pasta `challenge-eduzz` pelo terminal
